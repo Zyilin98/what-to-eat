@@ -196,6 +196,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, nextTick } from 'vue'
+import { ElMessage, ElMessageBox } from 'element-plus'
 import { useFoodStore } from '@/stores/food'
 import type { FoodItem } from '@/types'
 
@@ -389,14 +390,14 @@ const getMealTypeText = (mealType: string) => {
   return map[mealType as keyof typeof map] || mealType
 }
 
-const getMealTypeTag = (mealType: string) => {
+const getMealTypeTag = (mealType: string): 'primary' | 'success' | 'warning' | 'info' | 'danger' => {
   const map = {
-    'all': 'info',
-    'breakfast': 'warning',
-    'lunch': 'success',
-    'dinner': 'danger'
+    'all': 'info' as const,
+    'breakfast': 'warning' as const,
+    'lunch': 'success' as const,
+    'dinner': 'danger' as const
   }
-  return map[mealType as keyof typeof map] || 'info'
+  return map[mealType as keyof typeof map] || 'info' as const
 }
 
 // 监听食物变化，重新绘制转盘

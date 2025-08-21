@@ -364,12 +364,13 @@ const getMealTypeText = (type: string) => {
   return map[type as keyof typeof map] || type
 }
 
-const getMealTypeTag = (type: string) => {
+const getMealTypeTag = (type: string): 'primary' | 'success' | 'warning' | 'info' | 'danger' => {
   const map = {
-    breakfast: 'warning',
-    lunch: 'success',
-    dinner: 'info',
-    snack: 'default'
+    breakfast: 'info' as const,
+    lunch: 'warning' as const,
+    dinner: 'success' as const,
+    snack: 'danger' as const,
+    all: 'primary' as const
   }
   return map[type as keyof typeof map] || 'info'
 }
