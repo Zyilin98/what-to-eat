@@ -388,6 +388,8 @@ watch([mealFilter, foodFilter, dateRange], () => {
 .diet-diary {
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .add-record-card, .today-stats-card, .history-card {
@@ -450,14 +452,63 @@ watch([mealFilter, foodFilter, dateRange], () => {
 }
 
 @media (max-width: 768px) {
+  .diet-diary {
+    max-width: 100%;
+    padding: 0 5px;
+  }
+  
   .header-actions {
     flex-direction: column;
     align-items: stretch;
+    gap: 8px;
   }
   
-  .el-date-picker {
+  .header-actions > * {
     width: 100% !important;
-    margin-bottom: 10px;
+    margin: 0 !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .stat-item {
+    padding: 12px;
+  }
+  
+  .stat-number {
+    font-size: 20px;
+  }
+  
+  .today-foods {
+    justify-content: center;
+  }
+  
+  .el-table {
+    font-size: 13px;
+  }
+  
+  .el-table .el-button {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  
+  .stat-number {
+    font-size: 18px;
+  }
+  
+  .food-tag {
+    font-size: 12px;
   }
 }
 </style>

@@ -413,12 +413,14 @@ watch(filteredFoods, () => {
 .decision-center {
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .settings-card, .roulette-card, .random-list-card {
-  margin-bottom: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .card-header {
@@ -427,13 +429,15 @@ watch(filteredFoods, () => {
 }
 
 .roulette-container {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
 }
 
 .roulette-wheel {
   position: relative;
-  display: inline-block;
-  margin: 20px 0;
+  margin: 0 auto;
 }
 
 .roulette-wheel.spinning {
@@ -513,12 +517,56 @@ watch(filteredFoods, () => {
 }
 
 @media (max-width: 768px) {
+  .decision-center {
+    max-width: 100%;
+    padding: 0 5px;
+  }
+  
   .el-row {
-    margin: 0;
+    margin: 0 -10px;
   }
   
   .el-col {
-    padding: 0 !important;
+    padding: 0 10px !important;
+    margin-bottom: 15px;
+  }
+  
+  .settings-card, .roulette-card, .random-list-card {
+    margin-bottom: 20px;
+  }
+  
+  .roulette-container {
+    padding: 10px;
+  }
+  
+  .roulette-wheel {
+    transform: scale(0.8);
+    margin: 0 auto;
+  }
+  
+  .food-item {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  
+  .food-item .el-tag {
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .roulette-wheel {
+    transform: scale(0.8);
+    margin: 0 auto;
+  }
+  
+  .card-header {
+    font-size: 14px;
+  }
+  
+  .el-button {
+    font-size: 13px;
   }
 }
 </style>

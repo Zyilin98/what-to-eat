@@ -71,9 +71,26 @@ onMounted(() => {
 }
 
 .app-header {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  height: 70px;
+}
+
+@media (max-width: 1024px) {
+  .app-header {
+    height: 65px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    height: auto;
+    min-height: 60px;
+  }
 }
 
 .header-content {
@@ -83,6 +100,9 @@ onMounted(() => {
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  padding: 0 30px;
+  box-sizing: border-box;
+  gap: 20px;
 }
 
 .app-title {
@@ -95,12 +115,24 @@ onMounted(() => {
 .app-menu {
   border-bottom: none;
   background: transparent;
+  display: flex;
+  align-items: center;
+}
+
+.app-menu .el-menu-item {
+  padding: 0 10px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 13px;
+  white-space: nowrap;
 }
 
 .app-main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 30px 20px 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .app-footer {
@@ -130,20 +162,65 @@ onMounted(() => {
   margin: 5px 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .header-content {
-    flex-direction: column;
-    padding: 10px 0;
+    padding: 0 20px;
   }
   
   .app-title {
-    margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 22px;
+  }
+  
+  .app-main {
+    padding: 25px 15px 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    padding: 10px 5px;
+    gap: 10px;
+    max-width: 100%;
+  }
+  
+  .app-title {
+    margin-bottom: 5px;
+    font-size: 18px;
   }
   
   .app-menu {
     width: 100%;
     justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .app-menu .el-menu-item {
+    padding: 0 8px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  
+  .app-main {
+    padding: 20px 10px 10px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-title {
+    font-size: 16px;
+  }
+  
+  .app-menu .el-menu-item {
+    padding: 0 6px;
+    font-size: 12px;
+  }
+  
+  .app-main {
+    padding: 15px 8px 8px;
   }
 }
 </style>

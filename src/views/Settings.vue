@@ -400,6 +400,8 @@ onMounted(() => {
 .settings {
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .overview-card, .action-card, .danger-card, .preview-card {
@@ -476,6 +478,11 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
+  .settings {
+    max-width: 100%;
+    padding: 0 5px;
+  }
+  
   .data-stat {
     padding: 15px;
   }

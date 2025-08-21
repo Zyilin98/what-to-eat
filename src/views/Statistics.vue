@@ -651,6 +651,8 @@ onUnmounted(() => {
 .statistics {
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .filter-card, .chart-card, .detail-card, .stat-card {
@@ -704,6 +706,11 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
+  .statistics {
+    max-width: 100%;
+    padding: 0 5px;
+  }
+  
   .stat-content {
     flex-direction: column;
     gap: 10px;
@@ -715,6 +722,63 @@ onUnmounted(() => {
   
   .stat-number {
     font-size: 20px;
+  }
+  
+  .filter-card .el-row {
+    margin: 0 -5px;
+  }
+  
+  .filter-card .el-col {
+    padding: 0 5px !important;
+    margin-bottom: 10px;
+  }
+  
+  .chart-container {
+    height: 300px;
+  }
+  
+  .el-table {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .statistics {
+    padding: 0 5px;
+  }
+  
+  .stat-card {
+    padding: 15px 10px;
+  }
+  
+  .stat-content {
+    gap: 8px;
+  }
+  
+  .stat-icon {
+    font-size: 24px;
+  }
+  
+  .stat-number {
+    font-size: 18px;
+  }
+  
+  .stat-label {
+    font-size: 12px;
+  }
+  
+  .chart-container {
+    height: 250px;
+  }
+  
+  .card-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  
+  .card-header span {
+    text-align: center;
   }
 }
 </style>
